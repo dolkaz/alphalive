@@ -35,10 +35,52 @@
                     <!-- live score section -->
                     <div class="col s12 ls">
                         <div>
+                            <!-- date headings -->
+                            <div class="col s12 dayList no-padding">
+                                <ul class="row no-margin">
+                                    <!-- Previous days -->
+                                    <li class="before col s4 m5 no-padding">
+                                        <div class="col s12 m4 cs">
+                                            <a href="" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">18 Aug</a>
+                                        </div>
+                                        <div class="col s12 m4 cs">
+                                            <a href="" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">19 Aug</a>
+                                        </div>
+                                        <div class="col s12 m4 cs">
+                                            <a href="" class="center-align primary lighter btn white-text waves-effect waves-dark">20 Aug</a>
+                                        </div>
+                                    </li>
+                                    <!--// end previous days //-->
+
+                                    <!-- Current day -->
+                                    <li class="todays col s4 m2 no-padding">
+                                        <div class="col s12 cs">
+                                            <a href="" class="col s12 center-align secondary btn primary-text waves-effect waves-dark">Today</a>
+                                        </div>
+                                    </li>
+                                    <!--// end Current day //-->
+
+                                    <!-- Next days -->
+                                    <li class="after col s4 m5 no-padding">
+                                        <div class="col s12 m4 cs">
+                                            <a href="" class="center-align primary lighter btn white-text waves-effect waves-dark">22 Aug</a>
+                                        </div>
+                                        <div class="col s12 m4 cs">
+                                            <a href="" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">23 Aug</a>
+                                        </div>
+                                        <div class="col s12 m4 cs">
+                                            <a href="" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">24 Aug</a>
+                                        </div>
+                                    </li>
+                                    <!--// end Next days //-->
+                                </ul>
+                            </div>
+                            <!--// end date headings //-->
+
                             <!-- tab headings-->
                             <div class="col s12 no-padding">
                                 <ul class="tabs transparent">
-                                    <li class="tab primary dark lighter">
+                                    <li class="tab primary dark lighter hide">
                                         <span class="l valign-wrapper">
                                             <a href="#/scores/{{ date('Y-m-j',strtotime('-1 days')) }}">
                                                 <i class="material-icons">keyboard_arrow_left</i>
@@ -111,34 +153,42 @@
                                                             <!-- <img src="<?php //{{ $livescore->localTeam->data->logo_path }} ?>" width="20"> -->
                                                         </div>
                                                         <div class="col s11 m10 center-align mts white-text">
-                                                            <p class="col s5 right-align">{{ $livescore->localteam_name }}</p>
                                                             @if($livescore->time_status == 'NS')
+                                                                <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
                                                                 <p class="col s2 secondary-text center-align scs">
                                                                     <span class="home-scs">?</span> - 
                                                                     <span class="away-scs">?</span>
                                                                 </p>
+                                                                <p class="col s5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
                                                             @elseif($livescore->time_status == 'POSTP')
+                                                                <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
                                                                 <p class="col s2 secondary-text center-align scs">
                                                                     <span class="home-scs">?</span> - 
                                                                     <span class="away-scs">?</span>
                                                                 </p>
+                                                                <p class="col s5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
                                                             @elseif($livescore->time_status == 'TBA')
+                                                                <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
                                                                 <p class="col s2 secondary-text center-align scs">
                                                                     <span class="home-scs">?</span> - 
                                                                     <span class="away-scs">?</span>
                                                                 </p>
+                                                                <p class="col s5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
                                                             @elseif($livescore->time_status == 'CANCL')
+                                                                <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
                                                                 <p class="col s2 secondary-text center-align scs">
                                                                     <span class="home-scs">?</span> - 
                                                                     <span class="away-scs">?</span>
                                                                 </p>
+                                                                <p class="col s5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
                                                             @else
+                                                                <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <a href="/matches/{{$livescore->spm_id}}"" class="right secondary-text hide-on-med-and-up">{{ $livescore->localteam_score }}</a></p>
                                                                 <a href="/matches/{{$livescore->spm_id}}" class="col s2 secondary-text center-align scs">
                                                                     <span class="home-scs">{{ $livescore->localteam_score }}</span> - 
                                                                     <span class="away-scs">{{ $livescore->visitorteam_score }}</span>
                                                                 </a>
+                                                                <p class="col s5 left-align">{{ $livescore->visitorteam_name }} <a href="/matches/{{$livescore->spm_id}}"" class="right secondary-text hide-on-med-and-up">{{ $livescore->visitorteam_score }}</a></p>
                                                             @endif
-                                                            <p class="col s5 left-align">{{ $livescore->visitorteam_name }}</p>
                                                         </div>
                                                         <div class="col s1 m1 away-team center-align hide">
                                                             <!-- <span></span> -->
