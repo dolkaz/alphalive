@@ -84,28 +84,11 @@
         <!-- Collapsible Section -->
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
-
-                <li class="bold active hide">
-                    <a class="collapsible-header secondary-text">Cups</a>
-                    <div class="collapsible-body primary">
-                        <ul>
-                            <li><a href="#!">World Cup</a></li>
-                            <li><a href="#!">UEFA Champions League</a></li>
-                            <li><a href="#!">Europa League</a></li>
-                            <li><a href="#!">Confed. Cup</a></li>
-                            <li><a href="#!">Cup of Nations</a></li>
-                            <li><a href="#!">Euro 2016</a></li>
-                            <li><a href="#!">Copa America</a></li>
-                            <li><a href="#!">International</a></li>
-                        </ul>
-                    </div>
-                </li>
-
                 
                 <!-- top leagues section -->
                 <li class="bold active">
                     <a class="collapsible-header secondary-text">Current Leagues</a>
-                    <div class="collapsible-body">
+                    <div class="collapsible-body primary">
                         <ul>
                             <?php $leagues = DB::table('leagues')->where('status', '1')->orderBy('sort_order', 'asc')->get(); ?>
                             @foreach ($leagues as $league)
@@ -113,7 +96,7 @@
                                     <a href="#!/leagues/{{$league->spm_id}}">{{ $league->name }}</a>
                                 </li>
                             @endforeach
-                            <li><a class="secondary-text" href="/leagues/"><strong>View More</strong></a></li>
+                            <!-- <li><a class="secondary-text" href="/leagues/"><strong>View More</strong></a></li> -->
                         </ul>
                     </div>
                 </li>
@@ -123,7 +106,7 @@
                 <!-- Countries section -->
                 <li class="bold active">
                     <a class="collapsible-header secondary-text">Countries</a>
-                    <div class="collapsible-body">
+                    <div class="collapsible-body primary">
                         <ul>
                             <?php $countries = DB::table('countries')->where('status', '1')->orderBy('sort_order', 'asc')->get(); ?>
                             @foreach ($countries as $country)
@@ -131,7 +114,7 @@
                                     <a href="#!/countries/{{$country->spm_id}}">{{ $country->name }} </a>
                                 </li>
                             @endforeach
-                            <li><a class="secondary-text" href="/countries/"><strong>View More</strong></a></li>
+                            <!-- <li><a class="secondary-text" href="/countries/"><strong>View More</strong></a></li> -->
                         </ul>
                     </div>
                 </li>

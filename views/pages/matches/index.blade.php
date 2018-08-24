@@ -250,127 +250,127 @@
                                                         </thead>
                                                         <tbody>
                                                         @if(!empty($livescores_oda->data->stats->data))
-                                                            <tr>
-                                                                <td class="left">
-                                                                    {{ $livescores->data->stats->data[0]->shots->total }}
-                                                                </td>
-                                                                <td>Shots</td>
-                                                                <td class="right">
-                                                                    {{ $livescores->data->stats->data[1]->shots->total }}
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="left">
-                                                                    {{ $livescores->data->stats->data[0]->shots->ongoal }}
-                                                                </td>
-                                                                <td>Shots on target</td>
-                                                                <td class="right">
-                                                                    {{ $livescores->data->stats->data[1]->shots->ongoal }}
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="left">
-                                                                    {{ $livescores->data->stats->data[0]->possessiontime }}% 
-                                                                </td>
-                                                                <td>Possession</td>
-                                                                <td class="right">
-                                                                    {{ $livescores->data->stats->data[1]->possessiontime }}% 
-                                                                </td>
-                                                            </tr>
-                                                        @if(!empty($livescores->data->stats->data[0]->passes))
-                                                            <tr>
-                                                                <td class="left">
-                                                                    {{ $livescores->data->stats->data[0]->passes->total }}
-                                                                </td>
-                                                                <td>Passes</td>
-                                                                <td class="right">
-                                                                    {{ $livescores->data->stats->data[1]->passes->total }}
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="left">
-                                                                    {{ $livescores->data->stats->data[0]->passes->accurate }}
-                                                                </td>
-                                                                <td>Accurate Passes</td>
-                                                                <td class="right">
-                                                                    {{ $livescores->data->stats->data[1]->passes->accurate }}
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="left">
-                                                                    {{ $livescores->data->stats->data[0]->passes->percentage }}
-                                                                </td>
-                                                                <td>Passes(in %)</td>
-                                                                <td class="right">
-                                                                    {{ $livescores->data->stats->data[1]->passes->percentage }}
-                                                                </td>
-                                                            </tr>
-                                                        @endif
-                                                        @if(!empty($livescores->data->stats->data[0]->attacks))
-                                                            <tr>
-                                                                <td class="left">
-                                                                    {{ $livescores->data->stats->data[0]->attacks->attacks }}
-                                                                </td>
-                                                                <td>Attacks</td>
-                                                                <td class="right">
-                                                                    {{ $livescores->data->stats->data[1]->attacks->attacks }}
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="left">
-                                                                    {{ $livescores->data->stats->data[0]->attacks->dangerous_attacks }}
-                                                                </td>
-                                                                <td>Dangerous Attacks</td>
-                                                                <td class="right">
-                                                                    {{ $livescores->data->stats->data[1]->attacks->dangerous_attacks }}
-                                                                </td>
-                                                            </tr>
-                                                        @endif
-                                                            <tr>
-                                                                <td class="left">{{ $livescores->data->stats->data[0]->fouls }}</td>
-                                                                <td>Fouls</td>
-                                                                <td class="right">{{ $livescores->data->stats->data[1]->fouls }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="left">{{ $livescores->data->stats->data[0]->yellowcards }}</td>
-                                                                <td>Yellow Cards</td>
-                                                                <td class="right">{{ $livescores->data->stats->data[1]->yellowcards }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="left">{{ $livescores->data->stats->data[0]->redcards }}</td>
-                                                                <td>Red Cards</td>
-                                                                <td class="right">{{ $livescores->data->stats->data[1]->redcards }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="left">{{ $livescores->data->stats->data[0]->offsides }}</td>
-                                                                <td>Offsides</td>
-                                                                <td class="right">{{ $livescores->data->stats->data[1]->offsides }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="left">{{ $livescores->data->stats->data[0]->corners }}</td>
-                                                                <td>Corners</td>
-                                                                <td class="right">{{ $livescores->data->stats->data[1]->corners }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="left">{{ $livescores->data->stats->data[0]->goal_attempts }}</td>
-                                                                <td>Goal Attempts</td>
-                                                                <td class="right">{{ $livescores->data->stats->data[1]->goal_attempts }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="left">{{ $livescores->data->stats->data[0]->free_kick }}</td>
-                                                                <td>Free Kick</td>
-                                                                <td class="right">{{ $livescores->data->stats->data[1]->free_kick }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="left">{{ $livescores->data->stats->data[0]->throw_in }}</td>
-                                                                <td>Throw In</td>
-                                                                <td class="right">{{ $livescores->data->stats->data[1]->throw_in }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="left">{{ $livescores->data->stats->data[0]->saves }}</td>
-                                                                <td>Saves</td>
-                                                                <td class="right">{{ $livescores->data->stats->data[1]->saves }}</td>
-                                                            </tr>
+                                                                <tr>
+                                                                    <td class="left">
+                                                                        {{ $livescores->data->stats->data[0]->shots->total }}
+                                                                    </td>
+                                                                    <td>Shots</td>
+                                                                    <td class="right">
+                                                                        {{ $livescores->data->stats->data[1]->shots->total }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="left">
+                                                                        {{ $livescores->data->stats->data[0]->shots->ongoal }}
+                                                                    </td>
+                                                                    <td>Shots on target</td>
+                                                                    <td class="right">
+                                                                        {{ $livescores->data->stats->data[1]->shots->ongoal }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="left">
+                                                                        {{ $livescores->data->stats->data[0]->possessiontime }}% 
+                                                                    </td>
+                                                                    <td>Possession</td>
+                                                                    <td class="right">
+                                                                        {{ $livescores->data->stats->data[1]->possessiontime }}% 
+                                                                    </td>
+                                                                </tr>
+                                                            @if(!empty($livescores->data->stats->data[0]->passes))
+                                                                <tr>
+                                                                    <td class="left">
+                                                                        {{ $livescores->data->stats->data[0]->passes->total }}
+                                                                    </td>
+                                                                    <td>Passes</td>
+                                                                    <td class="right">
+                                                                        {{ $livescores->data->stats->data[1]->passes->total }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="left">
+                                                                        {{ $livescores->data->stats->data[0]->passes->accurate }}
+                                                                    </td>
+                                                                    <td>Accurate Passes</td>
+                                                                    <td class="right">
+                                                                        {{ $livescores->data->stats->data[1]->passes->accurate }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="left">
+                                                                        {{ $livescores->data->stats->data[0]->passes->percentage }}
+                                                                    </td>
+                                                                    <td>Passes(in %)</td>
+                                                                    <td class="right">
+                                                                        {{ $livescores->data->stats->data[1]->passes->percentage }}
+                                                                    </td>
+                                                                </tr>
+                                                            @endif
+                                                            @if(!empty($livescores->data->stats->data[0]->attacks))
+                                                                <tr>
+                                                                    <td class="left">
+                                                                        {{ $livescores->data->stats->data[0]->attacks->attacks }}
+                                                                    </td>
+                                                                    <td>Attacks</td>
+                                                                    <td class="right">
+                                                                        {{ $livescores->data->stats->data[1]->attacks->attacks }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="left">
+                                                                        {{ $livescores->data->stats->data[0]->attacks->dangerous_attacks }}
+                                                                    </td>
+                                                                    <td>Dangerous Attacks</td>
+                                                                    <td class="right">
+                                                                        {{ $livescores->data->stats->data[1]->attacks->dangerous_attacks }}
+                                                                    </td>
+                                                                </tr>
+                                                            @endif
+                                                                <tr>
+                                                                    <td class="left">{{ $livescores->data->stats->data[0]->fouls }}</td>
+                                                                    <td>Fouls</td>
+                                                                    <td class="right">{{ $livescores->data->stats->data[1]->fouls }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="left">{{ $livescores->data->stats->data[0]->yellowcards }}</td>
+                                                                    <td>Yellow Cards</td>
+                                                                    <td class="right">{{ $livescores->data->stats->data[1]->yellowcards }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="left">{{ $livescores->data->stats->data[0]->redcards }}</td>
+                                                                    <td>Red Cards</td>
+                                                                    <td class="right">{{ $livescores->data->stats->data[1]->redcards }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="left">{{ $livescores->data->stats->data[0]->offsides }}</td>
+                                                                    <td>Offsides</td>
+                                                                    <td class="right">{{ $livescores->data->stats->data[1]->offsides }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="left">{{ $livescores->data->stats->data[0]->corners }}</td>
+                                                                    <td>Corners</td>
+                                                                    <td class="right">{{ $livescores->data->stats->data[1]->corners }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="left">{{ $livescores->data->stats->data[0]->goal_attempts }}</td>
+                                                                    <td>Goal Attempts</td>
+                                                                    <td class="right">{{ $livescores->data->stats->data[1]->goal_attempts }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="left">{{ $livescores->data->stats->data[0]->free_kick }}</td>
+                                                                    <td>Free Kick</td>
+                                                                    <td class="right">{{ $livescores->data->stats->data[1]->free_kick }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="left">{{ $livescores->data->stats->data[0]->throw_in }}</td>
+                                                                    <td>Throw In</td>
+                                                                    <td class="right">{{ $livescores->data->stats->data[1]->throw_in }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="left">{{ $livescores->data->stats->data[0]->saves }}</td>
+                                                                    <td>Saves</td>
+                                                                    <td class="right">{{ $livescores->data->stats->data[1]->saves }}</td>
+                                                                </tr>
                                                         @else
                                                             <tr style="margin-top: 30px;">
                                                                 <td class="left"></td>

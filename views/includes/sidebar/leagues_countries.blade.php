@@ -18,7 +18,7 @@
                             <a href="/leagues/{{ $league->spm_id }}">{{ $league->name }}</a>
                         </li>
                     @endforeach
-                    <li><a class="secondary-text" href="#/leagues/"><strong>View More</strong></a></li>
+                    <!-- <li><a class="secondary-text" href="#/leagues/"><strong>View More</strong></a></li> -->
                 </ul>
             </div>
         </li>
@@ -55,7 +55,7 @@
                             <a href="/countries/{{$country->spm_id}}">{{ $country->name }}<!--  - <strong> {{ $country->name }} </strong> --></a>
                         </li>
                     @endforeach
-                    <li><a class="secondary-text" href="#/countries/"><strong>View More</strong></a></li>
+                    <!-- <li><a class="secondary-text" href="#/countries/"><strong>View More</strong></a></li> -->
                 </ul>
             </div>
         </li>
