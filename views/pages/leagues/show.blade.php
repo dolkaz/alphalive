@@ -119,7 +119,7 @@
                                                                     <span class="away-scs">?</span>
                                                                 </p>
                                                             @else
-                                                                <a href="/matches/{{$livescore->spm_id}}" class="col s2 secondary-text center-align scs">
+                                                                <a href="/matches/{{$livescore->spm_id}}" target="_blank" class="col s2 secondary-text center-align scs">
                                                                     <span class="home-scs">{{ $livescore->localteam_score }}</span> - 
                                                                     <span class="away-scs">{{ $livescore->visitorteam_score }}</span>
                                                                 </a>
