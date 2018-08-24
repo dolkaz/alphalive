@@ -41,13 +41,13 @@
                                     <!-- Previous days -->
                                     <li class="before col s4 m5 no-padding">
                                         <div class="col s12 m4 cs">
-                                            <a href="" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">18 Aug</a>
+                                            <a href="/scores/{{ date('Y-m-j',strtotime('-3 days')) }}" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">{{ date('j M',strtotime('-3 days')) }}</a>
                                         </div>
                                         <div class="col s12 m4 cs">
-                                            <a href="" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">19 Aug</a>
+                                            <a href="/scores/{{ date('Y-m-j',strtotime('-2 days')) }}" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">{{ date('j M',strtotime('-2 days')) }}</a>
                                         </div>
                                         <div class="col s12 m4 cs">
-                                            <a href="" class="center-align primary lighter btn white-text waves-effect waves-dark">20 Aug</a>
+                                            <a href="/scores/{{ date('Y-m-j',strtotime('-1 days')) }}" class="center-align primary lighter btn white-text waves-effect waves-dark">{{ date('j M',strtotime('-1 days')) }}</a>
                                         </div>
                                     </li>
                                     <!--// end previous days //-->
@@ -55,7 +55,7 @@
                                     <!-- Current day -->
                                     <li class="todays col s4 m2 no-padding">
                                         <div class="col s12 cs">
-                                            <a href="" class="col s12 center-align secondary btn primary-text waves-effect waves-dark">Today</a>
+                                            <a href="/" class="col s12 center-align secondary btn primary-text waves-effect waves-dark">Today</a>
                                         </div>
                                     </li>
                                     <!--// end Current day //-->
@@ -63,13 +63,13 @@
                                     <!-- Next days -->
                                     <li class="after col s4 m5 no-padding">
                                         <div class="col s12 m4 cs">
-                                            <a href="" class="center-align primary lighter btn white-text waves-effect waves-dark">22 Aug</a>
+                                            <a href="/scores/{{ date('Y-m-j',strtotime('+1 days')) }}" class="center-align primary lighter btn white-text waves-effect waves-dark">{{ date('j M',strtotime('+1 days')) }}</a>
                                         </div>
                                         <div class="col s12 m4 cs">
-                                            <a href="" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">23 Aug</a>
+                                            <a href="/scores/{{ date('Y-m-j',strtotime('+2 days')) }}" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">{{ date('j M',strtotime('+2 days')) }}</a>
                                         </div>
                                         <div class="col s12 m4 cs">
-                                            <a href="" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">24 Aug</a>
+                                            <a href="/scores/{{ date('Y-m-j',strtotime('+3 days')) }}" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">{{ date('j M',strtotime('+3 days')) }}</a>
                                         </div>
                                     </li>
                                     <!--// end Next days //-->
@@ -123,7 +123,7 @@
                                                 <!-- Fixtures foreach -->
                                                 <?php 
                                                     $today = \Carbon\Carbon::today();
-                                                    $where_array = array('league_id' => $livescore_league->league_id, 'starting_date' => $today->toDateString());
+                                                    $where_array = array('league_id' => $livescore_league->league_id, 'starting_date' => $livescore_league->starting_date);
                                                     $livescores = DB::table('fixtures')->where($where_array)->orderBy('starting_time', 'asc')->get() ?>
                                                 @foreach ($livescores as $key => $livescore)
                                                     
@@ -135,7 +135,7 @@
                                                                 </span>
                                                             @elseif($livescore->time_status =='LIVE')
                                                                 <span class="green-text text-accent-3">
-                                                                    <img src="http://gifimage.net/wp-content/uploads/2017/10/new-blinking-icon-gif-4.gif" style="width: 10px;" /> 
+                                                                    <img src="{{ asset('images/goalnownow-live-2.gif') }}" style="width: 10px;" /> 
                                                                     {{ $livescore->time_minute }}'
                                                                 </span>
                                                             @elseif($livescore->time_status =='FT')
@@ -155,39 +155,39 @@
                                                         <div class="col s11 m10 center-align mts white-text">
                                                             @if($livescore->time_status == 'NS')
                                                                 <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
-                                                                <p class="col s2 secondary-text center-align scs">
+                                                                <p class="col s2 secondary-text center-align scs hide-on-small-only">
                                                                     <span class="home-scs">?</span> - 
                                                                     <span class="away-scs">?</span>
                                                                 </p>
                                                                 <p class="col s5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
                                                             @elseif($livescore->time_status == 'POSTP')
                                                                 <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
-                                                                <p class="col s2 secondary-text center-align scs">
+                                                                <p class="col s2 secondary-text center-align scs hide-on-small-only">
                                                                     <span class="home-scs">?</span> - 
                                                                     <span class="away-scs">?</span>
                                                                 </p>
                                                                 <p class="col s5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
                                                             @elseif($livescore->time_status == 'TBA')
                                                                 <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
-                                                                <p class="col s2 secondary-text center-align scs">
+                                                                <p class="col s2 secondary-text center-align scs hide-on-small-only">
                                                                     <span class="home-scs">?</span> - 
                                                                     <span class="away-scs">?</span>
                                                                 </p>
                                                                 <p class="col s5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
                                                             @elseif($livescore->time_status == 'CANCL')
                                                                 <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
-                                                                <p class="col s2 secondary-text center-align scs">
+                                                                <p class="col s2 secondary-text center-align scs hide-on-small-only">
                                                                     <span class="home-scs">?</span> - 
                                                                     <span class="away-scs">?</span>
                                                                 </p>
                                                                 <p class="col s5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
                                                             @else
-                                                                <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <a href="/matches/{{$livescore->spm_id}}"" class="right secondary-text hide-on-med-and-up">{{ $livescore->localteam_score }}</a></p>
-                                                                <a href="/matches/{{$livescore->spm_id}}" class="col s2 secondary-text center-align scs">
+                                                                <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <a href="/matches/{{$livescore->spm_id}}" target="_blank" class="right secondary-text hide-on-med-and-up">{{ $livescore->localteam_score }}</a></p>
+                                                                <a href="/matches/{{$livescore->spm_id}}" target="_blank" class="col s2 secondary-text center-align scs hide-on-small-only">
                                                                     <span class="home-scs">{{ $livescore->localteam_score }}</span> - 
                                                                     <span class="away-scs">{{ $livescore->visitorteam_score }}</span>
                                                                 </a>
-                                                                <p class="col s5 left-align">{{ $livescore->visitorteam_name }} <a href="/matches/{{$livescore->spm_id}}"" class="right secondary-text hide-on-med-and-up">{{ $livescore->visitorteam_score }}</a></p>
+                                                                <p class="col s5 left-align">{{ $livescore->visitorteam_name }} <a href="/matches/{{$livescore->spm_id}}" target="_blank" class="right secondary-text hide-on-med-and-up">{{ $livescore->visitorteam_score }}</a></p>
                                                             @endif
                                                         </div>
                                                         <div class="col s1 m1 away-team center-align hide">

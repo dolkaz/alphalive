@@ -3,7 +3,7 @@
 	a {
 		border-radius: 3px;
 		font-weight: 500;
-		font-size: 11px;
+		font-size: 9px;
 		width: 100%;
 	}
 	.cs {padding: 0 2px !important;}
@@ -14,5 +14,11 @@
 	.tab {
 		width: 50% !important;
 		margin: 0 5px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.s-left-align {
+		text-align: left !important;
 	}
 }
