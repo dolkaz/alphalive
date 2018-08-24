@@ -159,35 +159,35 @@
                                                                     <span class="home-scs">?</span> - 
                                                                     <span class="away-scs">?</span>
                                                                 </p>
-                                                                <p class="col s5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
+                                                                <p class="col s12 m5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
                                                             @elseif($livescore->time_status == 'POSTP')
                                                                 <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
                                                                 <p class="col s2 secondary-text center-align scs hide-on-small-only">
                                                                     <span class="home-scs">?</span> - 
                                                                     <span class="away-scs">?</span>
                                                                 </p>
-                                                                <p class="col s5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
+                                                                <p class="col s12 m5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
                                                             @elseif($livescore->time_status == 'TBA')
                                                                 <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
                                                                 <p class="col s2 secondary-text center-align scs hide-on-small-only">
                                                                     <span class="home-scs">?</span> - 
                                                                     <span class="away-scs">?</span>
                                                                 </p>
-                                                                <p class="col s5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
+                                                                <p class="col s12 m5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
                                                             @elseif($livescore->time_status == 'CANCL')
                                                                 <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
                                                                 <p class="col s2 secondary-text center-align scs hide-on-small-only">
                                                                     <span class="home-scs">?</span> - 
                                                                     <span class="away-scs">?</span>
                                                                 </p>
-                                                                <p class="col s5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
+                                                                <p class="col s12 m5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
                                                             @else
                                                                 <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <a href="/matches/{{$livescore->spm_id}}" target="_blank" class="right secondary-text hide-on-med-and-up">{{ $livescore->localteam_score }}</a></p>
                                                                 <a href="/matches/{{$livescore->spm_id}}" target="_blank" class="col s2 secondary-text center-align scs hide-on-small-only">
                                                                     <span class="home-scs">{{ $livescore->localteam_score }}</span> - 
                                                                     <span class="away-scs">{{ $livescore->visitorteam_score }}</span>
                                                                 </a>
-                                                                <p class="col s5 left-align">{{ $livescore->visitorteam_name }} <a href="/matches/{{$livescore->spm_id}}" target="_blank" class="right secondary-text hide-on-med-and-up">{{ $livescore->visitorteam_score }}</a></p>
+                                                                <p class="col s12 m5 left-align">{{ $livescore->visitorteam_name }} <a href="/matches/{{$livescore->spm_id}}" target="_blank" class="right secondary-text hide-on-med-and-up">{{ $livescore->visitorteam_score }}</a></p>
                                                             @endif
                                                         </div>
                                                         <div class="col s1 m1 away-team center-align hide">
