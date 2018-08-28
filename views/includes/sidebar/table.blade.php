@@ -5,7 +5,7 @@
                 </div>
                 <!-- // end search section // -->
 
-                <div class="search" style="text-align: center; margin: 10px 0px 10px;">
+                <div class="search hide" style="text-align: center; margin: 10px 0px 10px;">
                     <a href="/">
                         <img src="{{ asset('images/300x250-goalnownow.png') }}" style="width: 100%;" alt="ADS on {{ config('app.name') }}">
                     </a>

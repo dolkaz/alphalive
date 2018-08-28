@@ -850,5 +850,11 @@
             <!--// end right section // -->
         </div>
     </main>
+    <!--// End Content section //-->
+
+    <!-- Static Ads Section [MOBILE] -->
+    <div class="static-ads hide-on-large-only">
+    </div>
+    <!--// End Static Ads Section [MOBILE] -->
     
 @include('includes.footer')
