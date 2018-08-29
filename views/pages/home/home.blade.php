@@ -114,116 +114,124 @@
                             <!-- Live score for day tab -->
                             <div id="day" class="col s12">
                                 <ul class="collapsible expandable">
-                                    @foreach ($livescores_leagues as $livescore_league)
-                                    <li class="bold active row">
-                                        <div class="collapsible-header primary lighter secondary-text z-depth-1">
-                                            <span class="title"> 
-                                                <?php 
+                                    <?php foreach ($livescores_leagues as $key => $livescore_league): ?>
+                                        <li class="bold active row">
+                                            <div class="collapsible-header primary lighter secondary-text z-depth-1">
+                                                <span class="title"> 
+                                                    <?php 
 
-                                                    $league_id = DB::table('leagues')->where('spm_id', '=', $livescore_league->league_id)->value('spm_country_id_id');
+                                                        $league_id = DB::table('leagues')->where('spm_id', '=', $livescore_league->league_id)->value('spm_country_id_id');
 
-                                                    $country = DB::table('countries')->where('spm_id', $league_id)->value('name');
-                                                    // var_dump($country);
-                                                ?> 
-                                                {{ $country }} - {{ $livescore_league->league_name }} - {{ $livescore_league->stage_name }} </span>
-                                            <span class="date">{{ \Carbon\Carbon::parse($livescore_league->starting_date_time)->format('M d') }}</span>
-                                        </div>
+                                                        $country = DB::table('countries')->where('spm_id', $league_id)->value('name');
+                                                        // var_dump($country);
+                                                    ?> 
+                                                    {{ $country }} - {{ $livescore_league->league_name }} - {{ $livescore_league->stage_name }} </span>
+                                                <span class="date">{{ \Carbon\Carbon::parse($livescore_league->starting_date_time)->format('M d') }}</span>
+                                            </div>
 
-                                        <div class="collapsible-body">
-                                            <!-- list of matches under this group -->
-                                            <ol>
-                                                <!-- Fixtures foreach -->
-                                                <?php 
-                                                    $today = \Carbon\Carbon::today();
-                                                    $where_array = array('league_id' => $livescore_league->league_id, 'starting_date' => $livescore_league->starting_date);
-                                                    $livescores = DB::table('fixtures')->where($where_array)->orderBy('starting_time', 'asc')->get() ?>
-                                                @foreach ($livescores as $key => $livescore)
+                                            <div class="collapsible-body">
+                                                <!-- list of matches under this group -->
+                                                <ol>
+                                                    <!-- Fixtures foreach -->
+                                                    <?php 
+                                                        $today = \Carbon\Carbon::today();
+                                                        $where_array = array('league_id' => $livescore_league->league_id, 'starting_date' => $livescore_league->starting_date);
+                                                        $livescores = DB::table('fixtures')->where($where_array)->orderBy('starting_time', 'asc')->get() ?>
+                                                    @foreach ($livescores as $key => $livescore)
+                                                        
+                                                        <li class="col s12 primary dark z-depth-1">
+                                                            <div class="col s1 m1 time">
+                                                                @if($livescore->time_status =='NS')
+                                                                    <span class="white-text">        
+                                                                        {{ \Carbon\Carbon::parse($livescore->starting_date_time)->addHour()->format('H:i') }}
+                                                                    </span>
+                                                                @elseif($livescore->time_status =='LIVE')
+                                                                    <span class="green-text text-accent-3">
+                                                                        <img src="{{ asset('images/goalnownow-live-2.gif') }}" style="width: 10px;" /> 
+                                                                        {{ $livescore->time_minute }}'
+                                                                    </span>
+                                                                @elseif($livescore->time_status =='FT')
+                                                                    <span class="green-text text-accent-3">
+                                                                        {{ $livescore->time_status }}
+                                                                    </span>
+                                                                @else
+                                                                    <span class="red-text">
+                                                                        {{ $livescore->time_status }}
+                                                                    </span>
+                                                                @endif
+                                                            </div>
+                                                            <div class="col s1 m1 home-team center-align hide">
+                                                                <!-- <span></span> -->
+                                                                <!-- <img src="<?php //{{ $livescore->localTeam->data->logo_path }} ?>" width="20"> -->
+                                                            </div>
+                                                            <div class="col s11 m10 center-align mts white-text">
+                                                                @if($livescore->time_status == 'NS')
+                                                                    <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
+                                                                    <p class="col s2 secondary-text center-align scs hide-on-small-only">
+                                                                        <span class="home-scs">?</span> - 
+                                                                        <span class="away-scs">?</span>
+                                                                    </p>
+                                                                    <p class="col s12 m5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
+                                                                @elseif($livescore->time_status == 'POSTP')
+                                                                    <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
+                                                                    <p class="col s2 secondary-text center-align scs hide-on-small-only">
+                                                                        <span class="home-scs">?</span> - 
+                                                                        <span class="away-scs">?</span>
+                                                                    </p>
+                                                                    <p class="col s12 m5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
+                                                                @elseif($livescore->time_status == 'TBA')
+                                                                    <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
+                                                                    <p class="col s2 secondary-text center-align scs hide-on-small-only">
+                                                                        <span class="home-scs">?</span> - 
+                                                                        <span class="away-scs">?</span>
+                                                                    </p>
+                                                                    <p class="col s12 m5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
+                                                                @elseif($livescore->time_status == 'CANCL')
+                                                                    <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
+                                                                    <p class="col s2 secondary-text center-align scs hide-on-small-only">
+                                                                        <span class="home-scs">?</span> - 
+                                                                        <span class="away-scs">?</span>
+                                                                    </p>
+                                                                    <p class="col s12 m5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
+                                                                @else
+                                                                    <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <a href="/matches/{{$livescore->spm_id}}" target="_blank" class="right secondary-text hide-on-med-and-up">{{ $livescore->localteam_score }}</a></p>
+                                                                    <a href="/matches/{{$livescore->spm_id}}" target="_blank" class="col s2 secondary-text center-align scs hide-on-small-only">
+                                                                        <span class="home-scs">{{ $livescore->localteam_score }}</span> - 
+                                                                        <span class="away-scs">{{ $livescore->visitorteam_score }}</span>
+                                                                    </a>
+                                                                    <p class="col s12 m5 left-align">{{ $livescore->visitorteam_name }} <a href="/matches/{{$livescore->spm_id}}" target="_blank" class="right secondary-text hide-on-med-and-up">{{ $livescore->visitorteam_score }}</a></p>
+                                                                @endif
+                                                            </div>
+                                                            <div class="col s1 m1 away-team center-align hide">
+                                                                <!-- <span></span> -->
+                                                                <!-- <img src="<?php //{{ $livescore->visitorTeam->data->logo_path }} ?>" width="20"> -->
+                                                            </div>
+                                                        </li>
+
+                                                    @endforeach
                                                     
-                                                    <li class="col s12 primary dark z-depth-1">
-                                                        <div class="col s1 m1 time">
-                                                            @if($livescore->time_status =='NS')
-                                                                <span class="white-text">        
-                                                                    {{ \Carbon\Carbon::parse($livescore->starting_date_time)->addHour()->format('H:i') }}
-                                                                </span>
-                                                            @elseif($livescore->time_status =='LIVE')
-                                                                <span class="green-text text-accent-3">
-                                                                    <img src="{{ asset('images/goalnownow-live-2.gif') }}" style="width: 10px;" /> 
-                                                                    {{ $livescore->time_minute }}'
-                                                                </span>
-                                                            @elseif($livescore->time_status =='FT')
-                                                                <span class="green-text text-accent-3">
-                                                                    {{ $livescore->time_status }}
-                                                                </span>
-                                                            @else
-                                                                <span class="red-text">
-                                                                    {{ $livescore->time_status }}
-                                                                </span>
-                                                            @endif
-                                                        </div>
-                                                        <div class="col s1 m1 home-team center-align hide">
-                                                            <!-- <span></span> -->
-                                                            <!-- <img src="<?php //{{ $livescore->localTeam->data->logo_path }} ?>" width="20"> -->
-                                                        </div>
-                                                        <div class="col s11 m10 center-align mts white-text">
-                                                            @if($livescore->time_status == 'NS')
-                                                                <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
-                                                                <p class="col s2 secondary-text center-align scs hide-on-small-only">
-                                                                    <span class="home-scs">?</span> - 
-                                                                    <span class="away-scs">?</span>
-                                                                </p>
-                                                                <p class="col s12 m5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
-                                                            @elseif($livescore->time_status == 'POSTP')
-                                                                <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
-                                                                <p class="col s2 secondary-text center-align scs hide-on-small-only">
-                                                                    <span class="home-scs">?</span> - 
-                                                                    <span class="away-scs">?</span>
-                                                                </p>
-                                                                <p class="col s12 m5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
-                                                            @elseif($livescore->time_status == 'TBA')
-                                                                <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
-                                                                <p class="col s2 secondary-text center-align scs hide-on-small-only">
-                                                                    <span class="home-scs">?</span> - 
-                                                                    <span class="away-scs">?</span>
-                                                                </p>
-                                                                <p class="col s12 m5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
-                                                            @elseif($livescore->time_status == 'CANCL')
-                                                                <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
-                                                                <p class="col s2 secondary-text center-align scs hide-on-small-only">
-                                                                    <span class="home-scs">?</span> - 
-                                                                    <span class="away-scs">?</span>
-                                                                </p>
-                                                                <p class="col s12 m5 left-align">{{ $livescore->visitorteam_name }} <span class="right secondary-text hide-on-med-and-up">?</span></p>
-                                                            @else
-                                                                <p class="col s12 m5 right-align s-left-align">{{ $livescore->localteam_name }} <a href="/matches/{{$livescore->spm_id}}" target="_blank" class="right secondary-text hide-on-med-and-up">{{ $livescore->localteam_score }}</a></p>
-                                                                <a href="/matches/{{$livescore->spm_id}}" target="_blank" class="col s2 secondary-text center-align scs hide-on-small-only">
-                                                                    <span class="home-scs">{{ $livescore->localteam_score }}</span> - 
-                                                                    <span class="away-scs">{{ $livescore->visitorteam_score }}</span>
-                                                                </a>
-                                                                <p class="col s12 m5 left-align">{{ $livescore->visitorteam_name }} <a href="/matches/{{$livescore->spm_id}}" target="_blank" class="right secondary-text hide-on-med-and-up">{{ $livescore->visitorteam_score }}</a></p>
-                                                            @endif
-                                                        </div>
-                                                        <div class="col s1 m1 away-team center-align hide">
-                                                            <!-- <span></span> -->
-                                                            <!-- <img src="<?php //{{ $livescore->visitorTeam->data->logo_path }} ?>" width="20"> -->
-                                                        </div>
-                                                    </li>
+                                                    <!-- Former closing foreach -->
+                                                </ol>
+                                                <!--// end list of matches under this group //-->
+                                            </div>
+                                        </li>
 
-                                                @endforeach
-                                                
-                                                <!-- Former closing foreach -->
-                                            </ol>
-                                            <!--// end list of matches under this group //-->
-                                        </div>
+                                        <?php if ($key % 4 == 0): //echo $key; ?>
 
-                                    </li>
-                                    @endforeach
+                                            <div class="ads-none text-center" style="text-align: center; margin: 10px 0px 10px;">
+                                                <!-- Inbetween Desktop -->
+                                                <ins class="adsbygoogle"
+                                                    style="display:inline-block;width:468px;height:60px"
+                                                    data-ad-client="ca-pub-8933541584844926"
+                                                    data-ad-slot="5673967814"></ins>
+                                                <script>
+                                                (adsbygoogle = window.adsbygoogle || []).push({});
+                                                </script>
+                                            </div>
 
-                                    <div class="ads-none text-center" style="text-align: center; margin: 10px 0px 10px;">
-                                        <a href="/">
-                                            <img src="{{ asset('images/728x90.png') }}" style="width: 100%;" class="text-center" alt="ADS on {{ config('app.name') }}">
-                                        </a>
-                                    </div>
-                                   
+                                        <?php endif ?>
+
+                                    <?php endforeach ?>
                                 </ul>
                             </div>
                             <!--// end live score for day tab //-->
@@ -235,9 +243,14 @@
                                     
 
                                     <div class="ads-none text-center" style="text-align: center; margin: 10px 0px 10px;">
-                                        <a href="/">
-                                            <img src="{{ asset('images/728x90.png') }}" style="width: 100%;" class="text-center" alt="ADS on {{ config('app.name') }}">
-                                        </a>
+                                        <!-- Inbetween Desktop -->
+                                        <ins class="adsbygoogle"
+                                            style="display:inline-block;width:468px;height:60px"
+                                            data-ad-client="ca-pub-8933541584844926"
+                                            data-ad-slot="5673967814"></ins>
+                                        <script>
+                                        (adsbygoogle = window.adsbygoogle || []).push({});
+                                        </script>
                                     </div>
 
                                 </ul>
@@ -309,10 +322,16 @@
                                         </li>
                                         
                                         <div class="ads-none text-center" style="text-align: center; margin: 10px 0px 10px;">
-                                            <a href="/">
-                                                <img src="{{ asset('images/728x90.png') }}" style="width: 100%;" class="text-center" alt="ADS on {{ config('app.name') }}">
-                                            </a>
+                                            <!-- Inbetween Desktop -->
+                                            <ins class="adsbygoogle"
+                                                style="display:inline-block;width:468px;height:60px"
+                                                data-ad-client="ca-pub-8933541584844926"
+                                                data-ad-slot="5673967814"></ins>
+                                            <script>
+                                            (adsbygoogle = window.adsbygoogle || []).push({});
+                                            </script>
                                         </div>
+
                                     @endforeach
 
                                 </ul>
