@@ -31,10 +31,15 @@
 
 
 <!-- bet add section -->
-<div class="bet-ad hide-on-med-and-down z-depth-1" style="text-align: center; margin: 10px 0px 10px; padding: 0;">
-    <a href="/">
-        <img src="{{ asset('images/300x250-goalnownow.png') }}" style="width: 100%;" alt="ADS on {{ config('app.name') }}">
-    </a>
+<div class="bet-ad hide-on-med-and-down z-depth-1" style="text-align: center; margin: 10px 0px 10px; padding: 0; overflow: hidden;">
+    <!-- Rectangule left -->
+    <ins class="adsbygoogle"
+        style="display:inline-block;width:300px;height:250px"
+        data-ad-client="ca-pub-8933541584844926"
+        data-ad-slot="4211862271"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 </div>
 
 
@@ -67,8 +72,13 @@
 
 
 <!-- bet add section -->
-<div class="bet-ad hide-on-med-and-down z-depth-1" style="text-align: center; margin: 10px 0px 10px; padding: 0;">
-    <a href="/">
-        <img src="{{ asset('images/300x250-goalnownow.png') }}" style="width: 100%;" alt="ADS on {{ config('app.name') }}">
-    </a>
+<div class="bet-ad hide-on-med-and-down z-depth-1" style="text-align: center; margin: 10px 0px 10px; padding: 0; overflow: hidden;">
+    <!-- Long left -->
+    <ins class="adsbygoogle"
+        style="display:inline-block;width:300px;height:600px"
+        data-ad-client="ca-pub-8933541584844926"
+        data-ad-slot="2223993182"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 </div>

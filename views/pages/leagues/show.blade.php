@@ -7,6 +7,18 @@
         <div class="co">
 
             <div class="ads-none text-center hide-sm hide-xs hide-on-small-only" style="text-align: center; margin: 10px 0px 10px;">
+                <!-- Inner mast head -->
+                <ins class="adsbygoogle"
+                    style="display:inline-block;width:970px;height:90px"
+                    data-ad-client="ca-pub-8933541584844926"
+                    data-ad-slot="3964450261"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <!-- Custom Adverts -->
+            <div class="ads-none text-center hide-sm hide-xs hide-on-small-only" style="text-align: center; margin: 10px 0px 10px;">
                 <a href="/">
                     <img src="{{ asset('images/728x90.png') }}" class="text-center" alt="ADS on {{ config('app.name') }}">
                 </a>
@@ -231,5 +243,14 @@
             <!--// end right section // -->
         </div>
     </main>
+    <!--// End Content section //-->
+    
+    <!-- Static Ads Section [MOBILE] -->
+    <div class="static-ads hide-on-large-only">
+        <a href="/">
+            <img src="{{ asset('images/ads/goalnownow-ads-fixed-300x50.png') }}" class="text-center" alt="{{ config('app.name') }}">
+        </a>
+    </div>
+    <!--// End Static Ads Section [MOBILE] -->
     
 @include('includes.footer')

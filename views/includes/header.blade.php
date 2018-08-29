@@ -54,8 +54,8 @@
             <a href="/" class="brand-logo left"><img src="{{ asset('images/goalnownow-logo.png') }}" width="200" alt="{{ config('app.name') }}"></a>
             <a href="#" data-target="slide-out" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li class="no-margin"><a href="/">Soccer</a></li>
-                <li class="no-margin"><a href="#!/worldcup/">WorldCup</a></li>
+                <!-- <li class="no-margin"><a href="/">Soccer</a></li> -->
+                <!-- <li class="no-margin"><a href="#!/worldcup/">WorldCup</a></li> -->
                 <li class="no-margin"><a href="#!">About</a></li>
                 <li class="no-margin"><a href=#!">Advertise</a></li>
                 <!-- <li class="no-margin"><a class="waves-effect waves-dark btn white">Log in</a></li> -->

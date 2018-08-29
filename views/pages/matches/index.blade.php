@@ -7,6 +7,18 @@
         <div class="co">
 
             <div class="ads-none text-center hide-sm hide-xs hide-on-small-only" style="text-align: center; margin: 10px 0px 10px;">
+                <!-- Inner mast head -->
+                <ins class="adsbygoogle"
+                    style="display:inline-block;width:970px;height:90px"
+                    data-ad-client="ca-pub-8933541584844926"
+                    data-ad-slot="3964450261"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <!-- Custom Adverts -->
+            <div class="ads-none text-center hide-sm hide-xs hide-on-small-only" style="text-align: center; margin: 10px 0px 10px;">
                 <a href="/">
                     <img src="{{ asset('images/728x90.png') }}" class="text-center" alt="ADS on {{ config('app.name') }}">
                 </a>
@@ -127,7 +139,7 @@
                                                                 '
                                                                 @if($goals->type == 'penalty') 
                                                                     <span class="red-text"><sup>Pen</sup></span>
-                                                                @elseif($goals->type == 'owngoal')
+                                                                @elseif($goals->type == 'own-goal')
                                                                     <span class="red-text"><sup>OG</sup></span>
                                                                 @else
                                                                 @endif
@@ -200,7 +212,7 @@
                                                                 <span class="red-text">
                                                                     @if($goals->type == 'penalty') 
                                                                         <sup>Pen</sup>
-                                                                    @elseif($goals->type == 'owngoal')
+                                                                    @elseif($goals->type == 'own-goal')
                                                                         <sup>OG</sup>
                                                                     @else
                                                                     @endif
@@ -252,124 +264,124 @@
                                                         @if(!empty($livescores_oda->data->stats->data))
                                                                 <tr>
                                                                     <td class="left">
-                                                                        {{ $livescores->data->stats->data[0]->shots->total }}
+                                                                        {{ $livescores->data->stats->data[1]->shots->total }}
                                                                     </td>
                                                                     <td>Shots</td>
                                                                     <td class="right">
-                                                                        {{ $livescores->data->stats->data[1]->shots->total }}
+                                                                        {{ $livescores->data->stats->data[0]->shots->total }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="left">
-                                                                        {{ $livescores->data->stats->data[0]->shots->ongoal }}
+                                                                        {{ $livescores->data->stats->data[1]->shots->ongoal }}
                                                                     </td>
                                                                     <td>Shots on target</td>
                                                                     <td class="right">
-                                                                        {{ $livescores->data->stats->data[1]->shots->ongoal }}
+                                                                        {{ $livescores->data->stats->data[0]->shots->ongoal }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="left">
-                                                                        {{ $livescores->data->stats->data[0]->possessiontime }}% 
+                                                                        {{ $livescores->data->stats->data[1]->possessiontime }}% 
                                                                     </td>
                                                                     <td>Possession</td>
                                                                     <td class="right">
-                                                                        {{ $livescores->data->stats->data[1]->possessiontime }}% 
+                                                                        {{ $livescores->data->stats->data[0]->possessiontime }}% 
                                                                     </td>
                                                                 </tr>
                                                             @if(!empty($livescores->data->stats->data[0]->passes))
                                                                 <tr>
                                                                     <td class="left">
-                                                                        {{ $livescores->data->stats->data[0]->passes->total }}
+                                                                        {{ $livescores->data->stats->data[1]->passes->total }}
                                                                     </td>
                                                                     <td>Passes</td>
                                                                     <td class="right">
-                                                                        {{ $livescores->data->stats->data[1]->passes->total }}
+                                                                        {{ $livescores->data->stats->data[0]->passes->total }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="left">
-                                                                        {{ $livescores->data->stats->data[0]->passes->accurate }}
+                                                                        {{ $livescores->data->stats->data[1]->passes->accurate }}
                                                                     </td>
                                                                     <td>Accurate Passes</td>
                                                                     <td class="right">
-                                                                        {{ $livescores->data->stats->data[1]->passes->accurate }}
+                                                                        {{ $livescores->data->stats->data[0]->passes->accurate }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="left">
-                                                                        {{ $livescores->data->stats->data[0]->passes->percentage }}
+                                                                        {{ $livescores->data->stats->data[1]->passes->percentage }}
                                                                     </td>
                                                                     <td>Passes(in %)</td>
                                                                     <td class="right">
-                                                                        {{ $livescores->data->stats->data[1]->passes->percentage }}
+                                                                        {{ $livescores->data->stats->data[0]->passes->percentage }}
                                                                     </td>
                                                                 </tr>
                                                             @endif
                                                             @if(!empty($livescores->data->stats->data[0]->attacks))
                                                                 <tr>
                                                                     <td class="left">
-                                                                        {{ $livescores->data->stats->data[0]->attacks->attacks }}
+                                                                        {{ $livescores->data->stats->data[1]->attacks->attacks }}
                                                                     </td>
                                                                     <td>Attacks</td>
                                                                     <td class="right">
-                                                                        {{ $livescores->data->stats->data[1]->attacks->attacks }}
+                                                                        {{ $livescores->data->stats->data[0]->attacks->attacks }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="left">
-                                                                        {{ $livescores->data->stats->data[0]->attacks->dangerous_attacks }}
+                                                                        {{ $livescores->data->stats->data[1]->attacks->dangerous_attacks }}
                                                                     </td>
                                                                     <td>Dangerous Attacks</td>
                                                                     <td class="right">
-                                                                        {{ $livescores->data->stats->data[1]->attacks->dangerous_attacks }}
+                                                                        {{ $livescores->data->stats->data[0]->attacks->dangerous_attacks }}
                                                                     </td>
                                                                 </tr>
                                                             @endif
                                                                 <tr>
-                                                                    <td class="left">{{ $livescores->data->stats->data[0]->fouls }}</td>
+                                                                    <td class="left">{{ $livescores->data->stats->data[1]->fouls }}</td>
                                                                     <td>Fouls</td>
-                                                                    <td class="right">{{ $livescores->data->stats->data[1]->fouls }}</td>
+                                                                    <td class="right">{{ $livescores->data->stats->data[0]->fouls }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="left">{{ $livescores->data->stats->data[0]->yellowcards }}</td>
+                                                                    <td class="left">{{ $livescores->data->stats->data[1]->yellowcards }}</td>
                                                                     <td>Yellow Cards</td>
-                                                                    <td class="right">{{ $livescores->data->stats->data[1]->yellowcards }}</td>
+                                                                    <td class="right">{{ $livescores->data->stats->data[0]->yellowcards }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="left">{{ $livescores->data->stats->data[0]->redcards }}</td>
+                                                                    <td class="left">{{ $livescores->data->stats->data[1]->redcards }}</td>
                                                                     <td>Red Cards</td>
-                                                                    <td class="right">{{ $livescores->data->stats->data[1]->redcards }}</td>
+                                                                    <td class="right">{{ $livescores->data->stats->data[0]->redcards }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="left">{{ $livescores->data->stats->data[0]->offsides }}</td>
+                                                                    <td class="left">{{ $livescores->data->stats->data[1]->offsides }}</td>
                                                                     <td>Offsides</td>
-                                                                    <td class="right">{{ $livescores->data->stats->data[1]->offsides }}</td>
+                                                                    <td class="right">{{ $livescores->data->stats->data[0]->offsides }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="left">{{ $livescores->data->stats->data[0]->corners }}</td>
+                                                                    <td class="left">{{ $livescores->data->stats->data[1]->corners }}</td>
                                                                     <td>Corners</td>
-                                                                    <td class="right">{{ $livescores->data->stats->data[1]->corners }}</td>
+                                                                    <td class="right">{{ $livescores->data->stats->data[0]->corners }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="left">{{ $livescores->data->stats->data[0]->goal_attempts }}</td>
+                                                                    <td class="left">{{ $livescores->data->stats->data[1]->goal_attempts }}</td>
                                                                     <td>Goal Attempts</td>
-                                                                    <td class="right">{{ $livescores->data->stats->data[1]->goal_attempts }}</td>
+                                                                    <td class="right">{{ $livescores->data->stats->data[0]->goal_attempts }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="left">{{ $livescores->data->stats->data[0]->free_kick }}</td>
+                                                                    <td class="left">{{ $livescores->data->stats->data[1]->free_kick }}</td>
                                                                     <td>Free Kick</td>
-                                                                    <td class="right">{{ $livescores->data->stats->data[1]->free_kick }}</td>
+                                                                    <td class="right">{{ $livescores->data->stats->data[0]->free_kick }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="left">{{ $livescores->data->stats->data[0]->throw_in }}</td>
+                                                                    <td class="left">{{ $livescores->data->stats->data[1]->throw_in }}</td>
                                                                     <td>Throw In</td>
-                                                                    <td class="right">{{ $livescores->data->stats->data[1]->throw_in }}</td>
+                                                                    <td class="right">{{ $livescores->data->stats->data[0]->throw_in }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="left">{{ $livescores->data->stats->data[0]->saves }}</td>
+                                                                    <td class="left">{{ $livescores->data->stats->data[1]->saves }}</td>
                                                                     <td>Saves</td>
-                                                                    <td class="right">{{ $livescores->data->stats->data[1]->saves }}</td>
+                                                                    <td class="right">{{ $livescores->data->stats->data[0]->saves }}</td>
                                                                 </tr>
                                                         @else
                                                             <tr style="margin-top: 30px;">
@@ -452,9 +464,10 @@
                                                                 @foreach($livescores_oda->data->lineup->data as $lineup)
                                                                     @if($lineup->team_id == $livescores->data->localTeam->data->id)
                                                                     <tr>
-                                                                        <td class="white-text">{{ $lineup->formation_position }}</td>
+                                                                        <!-- <td class="white-text">{{ $lineup->formation_position }}</td> -->
+                                                                        <td class="secondary-text"><strong>{{ $lineup->position }}</strong></td>
                                                                         <!-- <td><div class="team"></div></td> -->
-                                                                        <td class="white-text">{{ $lineup->player_name }} <strong>{{ $lineup->position }}</strong></td>
+                                                                        <td class="white-text">{{ $lineup->player_name }} </td>
                                                                         @if($lineup->stats->other->minutes_played !== 90)
                                                                             <!-- substitution -->
                                                                             <td class="">
@@ -466,7 +479,7 @@
                                                                         <!-- goal -->
                                                                         <td class="white-text goal">
                                                                           @if($lineup->stats->goals->scored > 0)
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M0 1.31702V5.29025L3.29685 7.68551L6.54462 5.79482V2.08873C5.6714 1.21618 4.6339 0.507192 3.46974 0L0 1.31702Z" transform="translate(10.5078 0.838867)" fill="white"/><path d="M3.17316 0L0 2.30539L1.21208 6.03561H5.1343L6.34638 2.30539L3.17316 0Z" transform="translate(6.80859 7.04443)" fill="white"/><path d="M7.16495 5.50684L9.01154 2.5287L6.62172 0H2.38948L0 2.52836L1.85359 5.50933C3.59538 5.99246 5.42006 5.99212 7.16495 5.50684Z" transform="translate(5.47656 14.1289)" fill="white"/><path d="M0 0.306802L2.4407 1.23326L4.88262 0.306399C4.07992 0.102379 3.26108 0 2.44198 0C1.62301 0 0.803843 0.102648 0 0.306802Z" transform="translate(7.54102)" fill="white"/><path d="M4.54402 0L1.28946 1.89466L0 5.86305L2.3675 8.36816L5.93202 7.00254C6.05074 6.77324 6.16152 6.53857 6.2635 6.29838C6.71846 5.22653 6.97935 4.10533 7.0461 2.9764L4.54402 0Z" transform="translate(12.918 7.60742)" fill="white"/><path d="M7.04502 5.86272L5.75556 1.89432L2.50161 0L0 2.98467C0.0643316 4.05303 0.302231 5.11547 0.714908 6.13678C0.830463 6.42274 0.958589 6.70118 1.09774 6.97229L4.679 8.36634L7.04502 5.86272Z" transform="translate(0 7.60791)" fill="white"/><path d="M3.66858 0L1.2549 0.927734L0 2.95152C1.45785 2.26653 2.70737 1.25645 3.66858 0Z" transform="translate(14.2441 16.0889)" fill="white"/><path d="M0 0V2.57058L1.8191 4.72088C1.71766 3.82972 1.49455 2.94675 1.14943 2.09256C0.84626 1.34216 0.459531 0.641636 0 0Z" transform="translate(18.0996 4.16357)" fill="white"/><path d="M3.66973 2.95166L2.41509 0.928272L0 0C0.959866 1.25464 2.20959 2.26478 3.66973 2.95166Z" transform="translate(2.04883 16.0884)" fill="white"/><path d="M3.24777 7.68578L6.54462 5.29052V1.31729L3.07421 0C1.91146 0.506049 0.874023 1.21524 0 2.089V5.79509L3.24777 7.68578Z" transform="translate(2.91211 0.838379)" fill="white"/><path d="M0 4.72115L1.8189 2.57105V0C1.39271 0.595118 1.02917 1.24166 0.736218 1.93183C0.352917 2.83489 0.107824 3.77291 0 4.72115Z" transform="translate(0.0449219 4.16309)" fill="white"/></svg> {{ $lineup->stats->goals->scored }}'
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M0 1.31702V5.29025L3.29685 7.68551L6.54462 5.79482V2.08873C5.6714 1.21618 4.6339 0.507192 3.46974 0L0 1.31702Z" transform="translate(10.5078 0.838867)" fill="white"/><path d="M3.17316 0L0 2.30539L1.21208 6.03561H5.1343L6.34638 2.30539L3.17316 0Z" transform="translate(6.80859 7.04443)" fill="white"/><path d="M7.16495 5.50684L9.01154 2.5287L6.62172 0H2.38948L0 2.52836L1.85359 5.50933C3.59538 5.99246 5.42006 5.99212 7.16495 5.50684Z" transform="translate(5.47656 14.1289)" fill="white"/><path d="M0 0.306802L2.4407 1.23326L4.88262 0.306399C4.07992 0.102379 3.26108 0 2.44198 0C1.62301 0 0.803843 0.102648 0 0.306802Z" transform="translate(7.54102)" fill="white"/><path d="M4.54402 0L1.28946 1.89466L0 5.86305L2.3675 8.36816L5.93202 7.00254C6.05074 6.77324 6.16152 6.53857 6.2635 6.29838C6.71846 5.22653 6.97935 4.10533 7.0461 2.9764L4.54402 0Z" transform="translate(12.918 7.60742)" fill="white"/><path d="M7.04502 5.86272L5.75556 1.89432L2.50161 0L0 2.98467C0.0643316 4.05303 0.302231 5.11547 0.714908 6.13678C0.830463 6.42274 0.958589 6.70118 1.09774 6.97229L4.679 8.36634L7.04502 5.86272Z" transform="translate(0 7.60791)" fill="white"/><path d="M3.66858 0L1.2549 0.927734L0 2.95152C1.45785 2.26653 2.70737 1.25645 3.66858 0Z" transform="translate(14.2441 16.0889)" fill="white"/><path d="M0 0V2.57058L1.8191 4.72088C1.71766 3.82972 1.49455 2.94675 1.14943 2.09256C0.84626 1.34216 0.459531 0.641636 0 0Z" transform="translate(18.0996 4.16357)" fill="white"/><path d="M3.66973 2.95166L2.41509 0.928272L0 0C0.959866 1.25464 2.20959 2.26478 3.66973 2.95166Z" transform="translate(2.04883 16.0884)" fill="white"/><path d="M3.24777 7.68578L6.54462 5.29052V1.31729L3.07421 0C1.91146 0.506049 0.874023 1.21524 0 2.089V5.79509L3.24777 7.68578Z" transform="translate(2.91211 0.838379)" fill="white"/><path d="M0 4.72115L1.8189 2.57105V0C1.39271 0.595118 1.02917 1.24166 0.736218 1.93183C0.352917 2.83489 0.107824 3.77291 0 4.72115Z" transform="translate(0.0449219 4.16309)" fill="white"/></svg> {{ $lineup->stats->goals->scored }}
                                                                           @endif
                                                                         </td>
                                                                         <!-- // end goal // -->
@@ -507,9 +520,10 @@
                                                                 @foreach($livescores_oda->data->lineup->data as $lineup)
                                                                     @if($lineup->team_id == $livescores->data->visitorTeam->data->id)
                                                                     <tr>
-                                                                        <td class="white-text">{{ $lineup->formation_position }}</td>
+                                                                        <!-- <td class="white-text">{{ $lineup->formation_position }}</td> -->
+                                                                        <td class="secondary-text"> <strong>{{ $lineup->position }}</strong></td>
                                                                         <!-- <td><div class="team"></div></td> -->
-                                                                        <td class="white-text">{{ $lineup->player_name }} <strong>{{ $lineup->position }}</strong></td>
+                                                                        <td class="white-text">{{ $lineup->player_name }}</td>
                                                                         @if($lineup->stats->other->minutes_played !== 90)
                                                                             <!-- substitution -->
                                                                             <td class=""><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M5.70788 2.1398H2.42927L3.23704 1.28702C3.5162 0.992304 3.5162 0.515747 3.23704 0.221035C2.95788 -0.0736782 2.50648 -0.0736782 2.22732 0.221035L0.207883 2.35927C0.0712743 2.50349 0 2.69161 0 2.89226C0 3.09292 0.0772138 3.28103 0.207883 3.42525L2.23326 5.56349C2.36987 5.70771 2.554 5.78296 2.73812 5.78296C2.92225 5.78296 3.10043 5.70771 3.24298 5.56349C3.52214 5.26878 3.52214 4.79222 3.24298 4.49751L2.4352 3.64472H5.71382C7.84611 3.64472 9.57451 5.4757 9.57451 7.72054V10.2475C9.57451 10.6614 9.89525 11 10.2873 11C10.6793 11 11 10.6614 11 10.2475V7.72054C11 4.64173 8.62419 2.1398 5.70788 2.1398Z" transform="translate(0 11) scale(1 -1)" fill="#C91922"/></svg></td>
@@ -519,7 +533,7 @@
                                                                         <!-- goal -->
                                                                         <td class="white-text goal">
                                                                           @if($lineup->stats->goals->scored > 0)
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M0 1.31702V5.29025L3.29685 7.68551L6.54462 5.79482V2.08873C5.6714 1.21618 4.6339 0.507192 3.46974 0L0 1.31702Z" transform="translate(10.5078 0.838867)" fill="white"/><path d="M3.17316 0L0 2.30539L1.21208 6.03561H5.1343L6.34638 2.30539L3.17316 0Z" transform="translate(6.80859 7.04443)" fill="white"/><path d="M7.16495 5.50684L9.01154 2.5287L6.62172 0H2.38948L0 2.52836L1.85359 5.50933C3.59538 5.99246 5.42006 5.99212 7.16495 5.50684Z" transform="translate(5.47656 14.1289)" fill="white"/><path d="M0 0.306802L2.4407 1.23326L4.88262 0.306399C4.07992 0.102379 3.26108 0 2.44198 0C1.62301 0 0.803843 0.102648 0 0.306802Z" transform="translate(7.54102)" fill="white"/><path d="M4.54402 0L1.28946 1.89466L0 5.86305L2.3675 8.36816L5.93202 7.00254C6.05074 6.77324 6.16152 6.53857 6.2635 6.29838C6.71846 5.22653 6.97935 4.10533 7.0461 2.9764L4.54402 0Z" transform="translate(12.918 7.60742)" fill="white"/><path d="M7.04502 5.86272L5.75556 1.89432L2.50161 0L0 2.98467C0.0643316 4.05303 0.302231 5.11547 0.714908 6.13678C0.830463 6.42274 0.958589 6.70118 1.09774 6.97229L4.679 8.36634L7.04502 5.86272Z" transform="translate(0 7.60791)" fill="white"/><path d="M3.66858 0L1.2549 0.927734L0 2.95152C1.45785 2.26653 2.70737 1.25645 3.66858 0Z" transform="translate(14.2441 16.0889)" fill="white"/><path d="M0 0V2.57058L1.8191 4.72088C1.71766 3.82972 1.49455 2.94675 1.14943 2.09256C0.84626 1.34216 0.459531 0.641636 0 0Z" transform="translate(18.0996 4.16357)" fill="white"/><path d="M3.66973 2.95166L2.41509 0.928272L0 0C0.959866 1.25464 2.20959 2.26478 3.66973 2.95166Z" transform="translate(2.04883 16.0884)" fill="white"/><path d="M3.24777 7.68578L6.54462 5.29052V1.31729L3.07421 0C1.91146 0.506049 0.874023 1.21524 0 2.089V5.79509L3.24777 7.68578Z" transform="translate(2.91211 0.838379)" fill="white"/><path d="M0 4.72115L1.8189 2.57105V0C1.39271 0.595118 1.02917 1.24166 0.736218 1.93183C0.352917 2.83489 0.107824 3.77291 0 4.72115Z" transform="translate(0.0449219 4.16309)" fill="white"/></svg> ({{ $lineup->stats->goals->scored }}')
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M0 1.31702V5.29025L3.29685 7.68551L6.54462 5.79482V2.08873C5.6714 1.21618 4.6339 0.507192 3.46974 0L0 1.31702Z" transform="translate(10.5078 0.838867)" fill="white"/><path d="M3.17316 0L0 2.30539L1.21208 6.03561H5.1343L6.34638 2.30539L3.17316 0Z" transform="translate(6.80859 7.04443)" fill="white"/><path d="M7.16495 5.50684L9.01154 2.5287L6.62172 0H2.38948L0 2.52836L1.85359 5.50933C3.59538 5.99246 5.42006 5.99212 7.16495 5.50684Z" transform="translate(5.47656 14.1289)" fill="white"/><path d="M0 0.306802L2.4407 1.23326L4.88262 0.306399C4.07992 0.102379 3.26108 0 2.44198 0C1.62301 0 0.803843 0.102648 0 0.306802Z" transform="translate(7.54102)" fill="white"/><path d="M4.54402 0L1.28946 1.89466L0 5.86305L2.3675 8.36816L5.93202 7.00254C6.05074 6.77324 6.16152 6.53857 6.2635 6.29838C6.71846 5.22653 6.97935 4.10533 7.0461 2.9764L4.54402 0Z" transform="translate(12.918 7.60742)" fill="white"/><path d="M7.04502 5.86272L5.75556 1.89432L2.50161 0L0 2.98467C0.0643316 4.05303 0.302231 5.11547 0.714908 6.13678C0.830463 6.42274 0.958589 6.70118 1.09774 6.97229L4.679 8.36634L7.04502 5.86272Z" transform="translate(0 7.60791)" fill="white"/><path d="M3.66858 0L1.2549 0.927734L0 2.95152C1.45785 2.26653 2.70737 1.25645 3.66858 0Z" transform="translate(14.2441 16.0889)" fill="white"/><path d="M0 0V2.57058L1.8191 4.72088C1.71766 3.82972 1.49455 2.94675 1.14943 2.09256C0.84626 1.34216 0.459531 0.641636 0 0Z" transform="translate(18.0996 4.16357)" fill="white"/><path d="M3.66973 2.95166L2.41509 0.928272L0 0C0.959866 1.25464 2.20959 2.26478 3.66973 2.95166Z" transform="translate(2.04883 16.0884)" fill="white"/><path d="M3.24777 7.68578L6.54462 5.29052V1.31729L3.07421 0C1.91146 0.506049 0.874023 1.21524 0 2.089V5.79509L3.24777 7.68578Z" transform="translate(2.91211 0.838379)" fill="white"/><path d="M0 4.72115L1.8189 2.57105V0C1.39271 0.595118 1.02917 1.24166 0.736218 1.93183C0.352917 2.83489 0.107824 3.77291 0 4.72115Z" transform="translate(0.0449219 4.16309)" fill="white"/></svg> {{ $lineup->stats->goals->scored }}
                                                                           @endif
                                                                         </td>
                                                                         <!-- // end goal // -->
@@ -850,5 +864,15 @@
             <!--// end right section // -->
         </div>
     </main>
+
+    <!--// End Content section //-->
+
+    <!-- Static Ads Section [MOBILE] -->
+    <div class="static-ads hide-on-large-only">
+        <a href="/">
+            <img src="{{ asset('images/ads/goalnownow-ads-fixed-300x50.png') }}" class="text-center" alt="{{ config('app.name') }}">
+        </a>
+    </div>
+    <!--// End Static Ads Section [MOBILE] -->
     
 @include('includes.footer')

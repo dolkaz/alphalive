@@ -5,11 +5,17 @@
                 </div>
                 <!-- // end search section // -->
 
-                <div class="search" style="text-align: center; margin: 10px 0px 10px;">
+                <div class="search hide-on-small-only hide-on-med-and-down" style="text-align: center; margin: 10px 0px 10px;">
                     <a href="/">
-                        <img src="{{ asset('images/300x250-goalnownow.png') }}" style="width: 100%;" alt="ADS on {{ config('app.name') }}">
+                        <img src="{{ asset('images/ads/goalnownow-hp-300-X-250.jpg') }}" style="width: 100%;" alt="ADS on {{ config('app.name') }}">
                     </a>
                 </div>
+
+                <!-- Mobile Top Ads Section [MOBILE] -->
+                <div class="hide-on-large-only">
+                    
+                </div>
+                <!--// End Mobile Top Ads Section [MOBILE] -->
 
                 <!-- share section -->
                 <div class="share hide-on-med-and-down">
@@ -18,18 +24,18 @@
                         
                         <div class="links right">
                             
-                            <a href="" class="facebook" target="_blank" style="display: none;">
+                            <!-- <a href="" class="facebook" target="_blank" style="display: none;">
                                 <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M10.2656 0C4.5957 0 0 4.59766 0 10.2693C0 15.9407 4.5957 20.5386 10.2656 20.5386C15.9355 20.5386 20.5312 15.9407 20.5312 10.2693C20.5312 4.59766 15.9355 0 10.2656 0ZM11.3359 10.7202V16.3071H9.02539V10.7205H7.87109V8.79517H9.02539V7.63916C9.02539 6.0686 9.67773 5.13452 11.5293 5.13452H13.0723V7.06006H12.1074C11.3867 7.06006 11.3398 7.3291 11.3398 7.8313L11.3359 8.79492H13.082L12.8789 10.7202H11.3359Z" fill="white"/>
                                 </svg>
-                            </a>
+                            </a> -->
 
-                            <a href="https://api.whatsapp.com/send?phone=" class="whatsapp" style="display: none;">
+                            <!-- <a href="https://api.whatsapp.com/send?phone=" class="whatsapp" style="display: none;">
                                 <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M20.5312 10.2693C20.5312 15.9407 15.9355 20.5386 10.2656 20.5386C4.5957 20.5386 0 15.9407 0 10.2693C0 4.59766 4.5957 0 10.2656 0C15.9355 0 20.5312 4.59766 20.5312 10.2693ZM7.68359 15.2393C8.57422 15.7258 9.57812 15.9822 10.6035 15.9827C13.9688 15.9812 16.7051 13.2422 16.707 9.87622C16.709 8.24463 16.0742 6.71045 14.9219 5.55615C13.7695 4.4021 12.2363 3.76611 10.6035 3.76538C7.23828 3.76538 4.5 6.50464 4.49805 9.87134C4.49805 10.9475 4.7793 11.998 5.3125 12.9241L4.44727 16.0884L7.68359 15.2393Z" fill="white"/>
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M2.49023 9.44702L2.30469 9.33716L0.384766 9.84106L0.896484 7.96802L0.775391 7.77612C0.267578 6.96802 0 6.03394 0 5.07495C0.00195312 2.27661 2.27734 0 5.07617 0C6.43164 0.000488281 7.70508 0.529053 8.66211 1.48853C9.62109 2.44775 10.1484 3.7229 10.1484 5.0791C10.1465 7.87769 7.87109 10.1545 5.07422 10.1545C4.16211 10.1541 3.26758 9.90942 2.49023 9.44702ZM7.94141 6.39453C8.04688 6.4458 8.11914 6.48047 8.15039 6.53149C8.1875 6.59521 8.1875 6.90063 8.06055 7.25708C7.93359 7.61353 7.32422 7.93872 7.03125 7.98267C6.76953 8.02197 6.43555 8.03833 6.07031 7.92212C5.84961 7.85181 5.56445 7.75781 5.20117 7.60059C3.77148 6.98267 2.80469 5.5957 2.62305 5.33447L2.5957 5.29688C2.51953 5.19507 1.97266 4.46948 1.97266 3.71851C1.97266 3.01831 2.31641 2.65015 2.47461 2.47949L2.50586 2.44556C2.64648 2.29272 2.8125 2.25464 2.91406 2.25464C3.01562 2.25464 3.11719 2.25562 3.20508 2.26001L3.23828 2.2605C3.32812 2.25977 3.43945 2.25903 3.54883 2.52197L3.70703 2.90625C3.83984 3.23218 3.99219 3.60254 4.01953 3.65479C4.05664 3.7312 4.08203 3.82031 4.03125 3.92212L4.00977 3.96558C3.97266 4.0437 3.94336 4.10107 3.87891 4.17676L3.80078 4.27051C3.74805 4.33447 3.69531 4.39844 3.65039 4.44409C3.57422 4.52002 3.49414 4.60254 3.58398 4.75537C3.67188 4.9082 3.97852 5.40771 4.43164 5.8125C4.91992 6.2478 5.34375 6.43164 5.55859 6.52441L5.6582 6.56958C5.81055 6.646 5.90039 6.6333 5.98828 6.53149C6.07812 6.42969 6.37109 6.08594 6.47266 5.93335C6.57422 5.78052 6.67578 5.80591 6.81445 5.85693C6.95508 5.90796 7.70508 6.27686 7.85742 6.35327L7.94141 6.39453Z" transform="translate(5.5293 4.79688)" fill="white"/>
                                 </svg>
-                            </a>
+                            </a> -->
 
                             <a href="http://www.instagram.com/goalnownow_official" target="_blank" class="instagram">
                                 <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,12 +51,12 @@
                                 </svg>
                             </a>
 
-                            <a href="" class="messenger" style="display: none;">
+                            <!-- <a href="" class="messenger" style="display: none;">
                                 <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M10.2656 0C4.5957 0 0 4.59766 0 10.2693C0 15.9407 4.5957 20.5386 10.2656 20.5386C15.9355 20.5386 20.5312 15.9407 20.5312 10.2693C20.5312 4.59766 15.9355 0 10.2656 0ZM4.10547 9.81274C4.10547 6.66187 6.86328 4.10767 10.2656 4.10767C13.666 4.10767 16.4238 6.66187 16.4238 9.81274C16.4238 12.9636 13.666 15.5178 10.2656 15.5178C9.65039 15.5178 9.05859 15.4343 8.49805 15.2793L6.40039 16.4307V14.2554C5.00195 13.2097 4.10547 11.6082 4.10547 9.81274Z" fill="white"/>
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M4.55663 3.42308L3.01265 1.82079L0 3.42308L3.31391 0L4.89555 1.60229L7.87054 0L4.55663 3.42308Z" transform="translate(6.1582 8.21533)" fill="white"/>
                                 </svg>
-                            </a>
+                            </a> -->
                         </div>
                     
                     </div>
@@ -125,8 +131,13 @@
                 <!-- // end table section // -->
 
                 <!-- bet add section -->
-                <div class="bet-ad hide-on-med-and-down z-depth-1" style="text-align: center; margin: 10px 0px 10px;">
-                    <a href="/">
-                        <img src="{{ asset('images/300x250-goalnownow.png') }}" style="width: 100%;" alt="ADS on {{ config('app.name') }}">
-                    </a>
+                <div class="bet-ad hide-on-med-and-down z-depth-1" style="text-align: center; margin: 10px 0px 10px; overflow: hidden;">
+                    <!-- Long side banner right -->
+                    <ins class="adsbygoogle"
+                        style="display:inline-block;width:300px;height:1050px"
+                        data-ad-client="ca-pub-8933541584844926"
+                        data-ad-slot="3440462812"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                 </div>
