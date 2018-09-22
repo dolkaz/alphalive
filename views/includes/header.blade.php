@@ -10,7 +10,7 @@
     <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon"/>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123762440-1"></script>
+    <script async src="//www.googletagmanager.com/gtag/js?id=UA-123762440-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -43,6 +43,10 @@
         .tabs .tab a{
             padding: 0 5px !important;
         }
+        .adsbygoogle, ins.adsbygoogle {
+            display: none !important;
+            visibility: hidden;
+        }
     </style>
 
 </head>
@@ -57,9 +61,9 @@
                 <!-- <li class="no-margin"><a href="/">Soccer</a></li> -->
                 <!-- <li class="no-margin"><a href="#!/worldcup/">WorldCup</a></li> -->
                 <li class="no-margin"><a href="#!">About</a></li>
-                <li class="no-margin"><a href=#!">Advertise</a></li>
+                <li class="no-margin"><a href="#footContact">Advertise</a></li>
                 <!-- <li class="no-margin"><a class="waves-effect waves-dark btn white">Log in</a></li> -->
-                <li class="no-margin"><a href="#!" class="waves-effect waves-light btn">Contact</a></li>
+                <li class="no-margin"><a href="#footContact" class="waves-effect waves-light btn">Contact</a></li>
             </ul>
         </div>
     </nav>

@@ -18,11 +18,18 @@
             </div>
 
             <!-- Custom Adverts -->
-            <div class="ads-none text-center hide-sm hide-xs hide-on-small-only" style="text-align: center; margin: 10px 0px 10px;">
-                <a href="/">
-                    <img src="{{ asset('images/728x90.png') }}" class="text-center" alt="ADS on {{ config('app.name') }}">
-                </a>
-            </div>
+            <?php 
+                $where_array       = array('status' => 1, 'type' => 'top-inner');
+                $ads_placement     = DB::table('ads')->where($where_array)->inRandomOrder()->first();
+            ?>
+            <?php if ($ads_placement !== null): ?>
+                <div class="ads-none text-center hide-sm hide-xs hide-on-small-only" style="text-align: center; margin: 10px 0px 10px;">
+                    <a href="{{ $ads_placement->url }}" target="_blank">
+                        <img src="{{ $ads_placement->image }}" alt="{{ $ads_placement->notes }} - {{ config('app.name') }}">
+                    </a>
+                </div>
+            <?php endif ?>
+            <!-- CLose Custom Adverts -->
 
         </div>
         <!--// end Advertisment section -->
@@ -246,11 +253,17 @@
     <!--// End Content section //-->
     
     <!-- Static Ads Section [MOBILE] -->
-    <div class="static-ads hide-on-large-only">
-        <a href="/">
-            <img src="{{ asset('images/ads/goalnownow-ads-fixed-300x50.png') }}" class="text-center" alt="{{ config('app.name') }}">
-        </a>
-    </div>
+    <?php 
+        $where_array        = array('status' => 1, 'type' => 'mobile-inner');
+        $ads_placement      = DB::table('ads')->where($where_array)->inRandomOrder()->first();
+    ?>
+    <?php if ($ads_placement !== null): ?>
+        <div class="static-ads hide-on-large-only text-center"  style="text-align: center;">
+            <a class=" text-center" href="{{ $ads_placement->url }}" target="_blank">
+                <img src="{{ $ads_placement->image }}" alt="{{ $ads_placement->notes }} - {{ config('app.name') }}" style="text-align: center; width: 100%;">
+            </a>
+        </div>
+    <?php endif ?>
     <!--// End Static Ads Section [MOBILE] -->
     
 @include('includes.footer')

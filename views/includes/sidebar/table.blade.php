@@ -1,15 +1,21 @@
-<!-- search section -->
+            <!-- search section -->
                 <div class="search white hide">
                     <input type="text" class="search-input" placeholder="Search Here ...">
                     <i class="material-icons right">search</i>
                 </div>
                 <!-- // end search section // -->
-
-                <div class="search hide-on-small-only hide-on-med-and-down" style="text-align: center; margin: 10px 0px 10px;">
-                    <a href="/">
-                        <img src="{{ asset('images/ads/goalnownow-hp-300-X-250.jpg') }}" style="width: 100%;" alt="ADS on {{ config('app.name') }}">
-                    </a>
-                </div>
+                <?php 
+                    $where_array        = array('status' => 1, 'type' => 'right-sidebar');
+                    $right_sidebar_ad   = DB::table('ads')->where($where_array)->inRandomOrder()->first();
+                ?>
+                <?php if ($right_sidebar_ad !== null): ?>
+                    <div class="search hide-on-small-only hide-on-med-and-down" style="text-align: center; margin: 10px 0px 10px;">
+                        <a href="{{ $right_sidebar_ad->url }}" target="_blank">
+                            <img src="{{ $right_sidebar_ad->image }}" style="width: 100%;" alt="{{ $right_sidebar_ad->notes }} - {{ config('app.name') }}">
+                        </a>
+                    </div>
+                <?php endif ?>
+                
 
                 <!-- Mobile Top Ads Section [MOBILE] -->
                 <div class="hide-on-large-only">
@@ -63,12 +69,17 @@
                 </div>
                 <!-- // end share section //-->
 
-                <!-- bet add section -->
-                <div class="bet-ad hide-on-med-and-down z-depth-1" style="text-align: center; margin: 10px 0px 10px;">
-                    <a href="/">
-                        <img src="{{ asset('images/300x250-goalnownow.png') }}" style="width: 100%;" alt="ADS on {{ config('app.name') }}">
-                    </a>
-                </div>
+                <?php 
+                    $where_array        = array('status' => 1, 'type' => 'right-sidebar-2');
+                    $right_sidebar_ad   = DB::table('ads')->where($where_array)->inRandomOrder()->first();
+                ?>
+                <?php if ($right_sidebar_ad !== null): ?>
+                    <div class="search hide-on-small-only hide-on-med-and-down" style="text-align: center; margin: 10px 0px 10px;">
+                        <a href="{{ $right_sidebar_ad->url }}" target="_blank">
+                            <img src="{{ $right_sidebar_ad->image }}" style="width: 100%;" alt="{{ $right_sidebar_ad->notes }} - {{ config('app.name') }}">
+                        </a>
+                    </div>
+                <?php endif ?>
 
                 <!-- table section -->
                 <div class="table-section hide-on-med-and-down">
@@ -141,3 +152,5 @@
                     (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                 </div>
+
+@include('includes.sidebar.prediction')

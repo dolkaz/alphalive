@@ -18,11 +18,18 @@
             </div>
             
             <!-- Custom Adverts -->
-            <div class="ads-none text-center hide-sm hide-xs hide-on-small-only" style="text-align: center; margin: 10px 0px 10px;">
-                <a href="/">
-                    <img src="{{ asset('images/728x90.png') }}" class="text-center" alt="ADS on {{ config('app.name') }}">
-                </a>
-            </div>
+            <?php 
+                $where_array       = array('status' => 1, 'type' => 'top-home');
+                $ads_placement     = DB::table('ads')->where($where_array)->inRandomOrder()->first();
+            ?>
+            <?php if ($ads_placement !== null): ?>
+                <div class="ads-none text-center hide-sm hide-xs hide-on-small-only" style="text-align: center; margin: 10px 0px 10px;">
+                    <a href="{{ $ads_placement->url }}" target="_blank">
+                        <img src="{{ $ads_placement->image }}" alt="{{ $ads_placement->notes }} - {{ config('app.name') }}">
+                    </a>
+                </div>
+            <?php endif ?>
+            <!-- CLose Custom Adverts -->
 
         </div>
         <!--// end Advertisment section -->
@@ -53,13 +60,13 @@
                                     <!-- Previous days -->
                                     <li class="before col s4 m5 no-padding">
                                         <div class="col s12 m4 cs">
-                                            <a href="/scores/{{ date('Y-m-j',strtotime('-3 days')) }}" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">{{ date('j M',strtotime('-3 days')) }}</a>
+                                            <a href="/scores/{{ date('Y-m-d',strtotime('-3 days')) }}" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">{{ date('j M',strtotime('-3 days')) }}</a>
                                         </div>
                                         <div class="col s12 m4 cs">
-                                            <a href="/scores/{{ date('Y-m-j',strtotime('-2 days')) }}" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">{{ date('j M',strtotime('-2 days')) }}</a>
+                                            <a href="/scores/{{ date('Y-m-d',strtotime('-2 days')) }}" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">{{ date('j M',strtotime('-2 days')) }}</a>
                                         </div>
                                         <div class="col s12 m4 cs">
-                                            <a href="/scores/{{ date('Y-m-j',strtotime('-1 days')) }}" class="center-align primary lighter btn white-text waves-effect waves-dark">{{ date('j M',strtotime('-1 days')) }}</a>
+                                            <a href="/scores/{{ date('Y-m-d',strtotime('-1 days')) }}" class="center-align primary lighter btn white-text waves-effect waves-dark">{{ date('j M',strtotime('-1 days')) }}</a>
                                         </div>
                                     </li>
                                     <!--// end previous days //-->
@@ -75,13 +82,13 @@
                                     <!-- Next days -->
                                     <li class="after col s4 m5 no-padding">
                                         <div class="col s12 m4 cs">
-                                            <a href="/scores/{{ date('Y-m-j',strtotime('+1 days')) }}" class="center-align primary lighter btn white-text waves-effect waves-dark">{{ date('j M',strtotime('+1 days')) }}</a>
+                                            <a href="/scores/{{ date('Y-m-d',strtotime('+1 days')) }}" class="center-align primary lighter btn white-text waves-effect waves-dark">{{ date('j M',strtotime('+1 days')) }}</a>
                                         </div>
                                         <div class="col s12 m4 cs">
-                                            <a href="/scores/{{ date('Y-m-j',strtotime('+2 days')) }}" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">{{ date('j M',strtotime('+2 days')) }}</a>
+                                            <a href="/scores/{{ date('Y-m-d',strtotime('+2 days')) }}" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">{{ date('j M',strtotime('+2 days')) }}</a>
                                         </div>
                                         <div class="col s12 m4 cs">
-                                            <a href="/scores/{{ date('Y-m-j',strtotime('+3 days')) }}" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">{{ date('j M',strtotime('+3 days')) }}</a>
+                                            <a href="/scores/{{ date('Y-m-d',strtotime('+3 days')) }}" class="center-align primary lighter btn white-text waves-effect waves-dark hide-on-small-only">{{ date('j M',strtotime('+3 days')) }}</a>
                                         </div>
                                     </li>
                                     <!--// end Next days //-->
@@ -352,11 +359,20 @@
     <!--// End Content section //-->
     
     <!-- Static Ads Section [MOBILE] -->
-    <div class="static-ads hide-on-large-only">
-        <a href="/">
-            <img src="{{ asset('images/ads/goalnownow-ads-fixed-300x50.png') }}" class="text-center" alt="{{ config('app.name') }}">
-        </a>
-    </div>
+    <?php 
+        $where_array        = array('status' => 1, 'type' => 'mobile-home');
+        $ads_placement      = DB::table('ads')->where($where_array)->inRandomOrder()->first();
+    ?>
+    <?php if ($ads_placement !== null): ?>
+        <div class="static-ads hide-on-large-only text-center"  style="text-align: center;">
+            <a class=" text-center" href="{{ $ads_placement->url }}" target="_blank">
+                <img src="{{ $ads_placement->image }}" alt="{{ $ads_placement->notes }} - {{ config('app.name') }}" style="text-align: center; width: 100%;">
+            </a>
+        </div>
+    <?php endif ?>
+
+    @include('includes.static_news')
+
     <!--// End Static Ads Section [MOBILE] -->
 
     

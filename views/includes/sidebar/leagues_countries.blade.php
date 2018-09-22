@@ -1,3 +1,4 @@
+@include('includes.sidebar.left_news')
 <div class="primary dark z-depth-1">
     <div class="saii"><img src=images/e3805ee62b68.svg alt="" class="saimg"><a href="/">Home</a></div>
     <!-- <div class="saii"><img src=images/0cf54f6e0a6d.svg alt="" class="saimg"><a href="#!">Live</a></div> -->
